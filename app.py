@@ -123,7 +123,7 @@ def index():
           res['answer'] = "ごめんさい"
       
       history = memory.load_memory_variables({})
-      with open("./vtsgpt_git/vts_history.json","w", encoding="utf-8") as f:
+      with open("./vts_history.json","w", encoding="utf-8") as f:
         json.dump(history, f, indent=4, ensure_ascii=False)
       return jsonify(res),200 #json形式でgptの返答を保存している
     
