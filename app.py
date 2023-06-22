@@ -13,7 +13,7 @@ from langchain.memory import ConversationBufferWindowMemory
 import re
 
 import os
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "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"
 
 def page_not_found(e):
   return render_template('404.html'), 404
