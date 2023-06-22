@@ -1,9 +1,8 @@
 from flask import Flask, render_template, jsonify, request
-import conf
-import config
+
 import json
 import openai
-
+import os
 from langchain.llms import OpenAI
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import ConversationChain
@@ -15,9 +14,9 @@ import re
 
 def page_not_found(e):
   return render_template('404.html'), 404
+os.environ["OPENAI_API_KEY"] = "API_KEY"
 
 app = Flask(__name__)
-app.config.from_object(config.config['development'])
 app.register_error_handler(404, page_not_found)
 
 #########    対話型鑑賞の処理内容    ######## 
