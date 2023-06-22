@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify, request
+import conf
 import config
 import json
 import openai
@@ -11,9 +12,6 @@ from langchain.prompts.prompt import PromptTemplate
 from langchain.memory import ConversationBufferMemory
 from langchain.memory import ConversationBufferWindowMemory
 import re
-
-import os
-os.environ["OPENAI_API_KEY"] = "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"
 
 def page_not_found(e):
   return render_template('404.html'), 404
