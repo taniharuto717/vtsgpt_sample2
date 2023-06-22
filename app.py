@@ -12,9 +12,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain.memory import ConversationBufferWindowMemory
 import re
 
-api_key = config.DevelopmentConfig.OPENAI_KEY
-openai.api_key = api_key
-os.environ["OPENAI_API_KEY"] = api_key
+os.environ["OPENAI_API_KEY"] = ""
 
 def page_not_found(e):
   return render_template('404.html'), 404
