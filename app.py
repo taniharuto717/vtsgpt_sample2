@@ -2,7 +2,7 @@ from flask import Flask, render_template, jsonify, request
 import config
 import json
 import openai
-import os
+
 from langchain.llms import OpenAI
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import ConversationChain
@@ -12,7 +12,8 @@ from langchain.memory import ConversationBufferMemory
 from langchain.memory import ConversationBufferWindowMemory
 import re
 
-os.environ["OPENAI_API_KEY"] = ""
+import os
+os.environ["OPENAI_API_KEY"] = "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"
 
 def page_not_found(e):
   return render_template('404.html'), 404
@@ -122,7 +123,7 @@ def index():
           res['answer'] = "ごめんさい"
       
       history = memory.load_memory_variables({})
-      with open("./vts_history.json","w", encoding="utf-8") as f:
+      with open("./vtsgpt_git/vts_history.json","w", encoding="utf-8") as f:
         json.dump(history, f, indent=4, ensure_ascii=False)
       return jsonify(res),200 #json形式でgptの返答を保存している
     
@@ -130,4 +131,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0', port='8888', debug=True)
