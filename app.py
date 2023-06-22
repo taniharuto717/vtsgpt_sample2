@@ -124,11 +124,11 @@ def index():
           res['answer'] = "ごめんさい"
       
       history = memory.load_memory_variables({})
-      with open("/Users/taniharuto/vtsgpt_git/vts_history.json","w", encoding="utf-8") as f:
+      with open("./vts_history.json","w", encoding="utf-8") as f:
         json.dump(history, f, indent=4, ensure_ascii=False)
       return jsonify(res),200 #json形式でgptの返答を保存している
     
-  return render_template('template/index.html', **locals())
+  return render_template('index.html', **locals())
 
 
 if __name__ == '__main__':
